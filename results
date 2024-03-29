@@ -1,0 +1,540 @@
+Order: male, female
+TP FN
+FP TN
+Alcohol normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[546   1]
+ [ 18   0]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[544   0]
+ [ 21   0]]
+
+Logistic Regression:
+male tpr = 0.9981718464351006
+female tpr = 1.0
+dp = 0.001769911504424737
+EOp = 0.001828153564899404
+EOd = 0.000914076782449702
+accuracy = 0.9646017699115044
+
+MLP:
+Female TPR 1.0
+male TPR 1.0
+DP 0.0
+EOP 0.0
+EoD 0.0
+acc 0.9708222811671088
+
+Amphet normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[181  90]
+ [ 94 200]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 42 103]
+ [ 38 382]]
+
+Logistic Regression:
+male tpr = 0.6678966789667896
+female tpr = 0.2896551724137931
+dp = 0.34513274336283184
+EOp = 0.3782415065529965
+EOd = 0.3037466036166343
+accuracy = 0.7123893805309734
+
+MLP:
+Female TPR 0.7857142857142857
+male TPR 0.3617021276595745
+DP 0.40915750915750915
+EOP 0.4240121580547112
+EoD 0.3638262665618288
+acc 0.7055702917771883
+
+Amyl normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 24 123]
+ [ 19 399]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 11  62]
+ [  1 491]]
+
+Logistic Regression:
+male tpr = 0.16326530612244897
+female tpr = 0.1506849315068493
+dp = 0.05486725663716814
+EOp = 0.01258037461559966
+EOd = 0.028001199872470933
+accuracy = 0.8185840707964602
+
+MLP:
+Female TPR 0.2682926829268293
+male TPR 0.04
+DP 0.11611721611721611
+EOP 0.22829268292682928
+EoD 0.1537583564821881
+acc 0.8222811671087533
+
+Benzos normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[176  94]
+ [ 87 208]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 95  99]
+ [ 57 314]]
+
+Logistic Regression:
+male tpr = 0.6518518518518519
+female tpr = 0.4896907216494845
+dp = 0.19646017699115043
+EOp = 0.1621611302023674
+EOd = 0.1517187852117415
+accuracy = 0.7017699115044248
+
+MLP:
+Female TPR 0.6590909090909091
+male TPR 0.5277777777777778
+DP 0.1802197802197802
+EOP 0.13131313131313127
+EoD 0.137356963511608
+acc 0.7055702917771883
+
+Caffeine normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[558   0]
+ [  7   0]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[554   0]
+ [ 11   0]]
+
+Logistic Regression:
+male tpr = 1.0
+female tpr = 1.0
+dp = 0.0
+EOp = 0.0
+EOd = 0.0
+accuracy = 0.984070796460177
+
+MLP:
+Female TPR 1.0
+male TPR 1.0
+DP 0.0
+EOP 0.0
+EoD 0.0
+acc 0.9840848806366048
+
+Cannabis normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[416  27]
+ [ 45  77]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[252  68]
+ [ 51 194]]
+
+Logistic Regression:
+male tpr = 0.9390519187358917
+female tpr = 0.7875
+dp = 0.279646017699115
+EOp = 0.1515519187358917
+EOd = 0.15612055622308135
+accuracy = 0.8309734513274336
+
+MLP:
+Female TPR 0.9115646258503401
+male TPR 0.8050847457627118
+DP 0.2175824175824176
+EOP 0.10647988008762832
+EoD 0.10129188809576221
+acc 0.8222811671087533
+
+Chocolate normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[555   0]
+ [ 10   0]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[557   0]
+ [  8   0]]
+
+Logistic Regression:
+male tpr = 1.0
+female tpr = 1.0
+dp = 0.0
+EOp = 0.0
+EOd = 0.0
+accuracy = 0.984070796460177
+
+MLP:
+Female TPR 1.0
+male TPR 1.0
+DP 0.0
+EOP 0.0
+EoD 0.0
+acc 0.9840848806366048
+
+Coke normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[151 108]
+ [ 97 209]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 65 109]
+ [ 41 350]]
+
+Logistic Regression:
+Coke as the target label, and gender as the sensitive label the DP is 0.2513, the EOp is 0.2094, and the EOd is 0.2108.
+male tpr = 0.583011583011583
+female tpr = 0.3735632183908046
+dp = 0.25132743362831855
+EOp = 0.20944836462077837
+EOd = 0.2107912468173514
+accuracy = 0.6858407079646017
+
+MLP:
+Female TPR 0.611764705882353
+male TPR 0.41818181818181815
+DP 0.19450549450549448
+EOP 0.19358288770053483
+EoD 0.1565852582832571
+acc 0.6710875331564987
+
+Crack normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[  1  80]
+ [  0 484]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[  0  39]
+ [  0 526]]
+
+Logistic Regression:
+male tpr = 0.012345679012345678
+female tpr = 0.0
+dp = 0.0017699115044247787
+EOp = 0.012345679012345678
+EOd = 0.006172839506172839
+accuracy = 0.8946902654867257
+
+MLP:
+Female TPR 0.0
+male TPR 0.0
+DP 0.0
+EOP 0.0
+EoD 0.0
+acc 0.8779840848806366
+
+Ecstasy normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[217  75]
+ [ 89 184]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 77  89]
+ [ 36 363]]
+
+Logistic Regression:
+male tpr = 0.7431506849315068
+female tpr = 0.463855421686747
+dp = 0.3415929203539823
+EOp = 0.27929526324475984
+EOd = 0.2575385126711557
+accuracy = 0.7442477876106195
+
+MLP:
+Female TPR 0.7604166666666666
+male TPR 0.5
+DP 0.34212454212454213
+EOP 0.26041666666666663
+EoD 0.2660275324940258
+acc 0.7161803713527851
+
+Heroin normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[  4  86]
+ [  9 466]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[  5  30]
+ [  3 527]]
+
+Logistic Regression:
+male tpr = 0.044444444444444446
+female tpr = 0.14285714285714285
+dp = 0.008849557522123894
+EOp = 0.0984126984126984
+EOd = 0.05584984473763023
+accuracy = 0.8867256637168142
+
+MLP:
+Female TPR 0.10714285714285714
+male TPR 0.058823529411764705
+DP 0.012454212454212455
+EOP 0.04831932773109243
+EoD 0.025472957313671125
+acc 0.8753315649867374
+
+Ketamine normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[  6 132]
+ [  3 424]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[  1  65]
+ [  3 496]]
+
+Logistic Regression:
+male tpr = 0.043478260869565216
+female tpr = 0.015151515151515152
+dp = 0.008849557522123894
+EOp = 0.028326745718050064
+EOd = 0.014670241397037827
+accuracy = 0.820353982300885
+
+MLP:
+Female TPR 0.1509433962264151
+male TPR 0.05
+DP 0.06666666666666667
+EOP 0.10094339622641509
+EoD 0.07087036920955306
+acc 0.8116710875331565
+
+Legal highs normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[276  49]
+ [ 67 173]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 64  84]
+ [ 36 381]]
+
+Logistic Regression:
+male tpr = 0.8492307692307692
+female tpr = 0.43243243243243246
+dp = 0.4300884955752213
+EOp = 0.4167983367983368
+EOd = 0.30481703410660244
+accuracy = 0.7911504424778761
+
+MLP:
+Female TPR 0.8113207547169812
+male TPR 0.40384615384615385
+DP 0.3655677655677656
+EOP 0.4074746008708273
+EoD 0.24955989888959107
+acc 0.7771883289124668
+
+LSD normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[192  59]
+ [ 71 243]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 41  61]
+ [ 24 439]]
+
+Logistic Regression:
+male tpr = 0.7649402390438247
+female tpr = 0.4019607843137255
+dp = 0.35044247787610616
+EOp = 0.3629794547300992
+EOd = 0.2686291256399392
+accuracy = 0.8097345132743363
+
+MLP:
+Female TPR 0.6438356164383562
+male TPR 0.42105263157894735
+DP 0.2644688644688644
+EOP 0.22278298485940884
+EoD 0.20263791327935088
+acc 0.7480106100795756
+
+Meth normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 65 109]
+ [ 62 329]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 35  49]
+ [ 21 460]]
+
+Logistic Regression:
+male tpr = 0.3735632183908046
+female tpr = 0.4166666666666667
+dp = 0.1256637168141593
+EOp = 0.0431034482758621
+EOd = 0.07900608977643991
+accuracy = 0.7867256637168142
+
+MLP:
+Female TPR 0.5833333333333334
+male TPR 0.2903225806451613
+DP 0.17728937728937733
+EOP 0.29301075268817206
+EoD 0.19810712370484324
+acc 0.8037135278514589
+
+Mushrooms normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[229  59]
+ [ 82 195]]
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 60  81]
+ [ 40 384]]
+
+Logistic Regression:
+male tpr = 0.7951388888888888
+female tpr = 0.425531914893617
+dp = 0.37345132743362836
+EOp = 0.3696069739952718
+EOd = 0.28564811611009416
+accuracy = 0.768141592920354
+
+MLP:
+Female TPR 0.75
+male TPR 0.574468085106383
+DP 0.308058608058608
+EOP 0.17553191489361697
+EoD 0.19024343492428597
+acc 0.7559681697612732
+
+Nicotine normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[400  18]
+ [ 97  50]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[284  64]
+ [106 111]]
+
+Logistic Regression:
+male tpr = 0.9569377990430622
+female tpr = 0.8160919540229885
+dp = 0.1893805309734513
+EOp = 0.1408458450200737
+EOd = 0.15611526396274694
+accuracy = 0.7477876106194691
+
+MLP:
+Female TPR 0.8880597014925373
+male TPR 0.7933884297520661
+DP 0.11135531135531129
+EOP 0.09467127174047119
+EoD 0.07971176199636176
+acc 0.6976127320954907
+
+Semeron normal (Fake):
+Train Result:
+================================================
+Confusion Matrix:
+ [[  0   1]
+ [  0 564]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[  0   3]
+ [  0 562]]
+
+Logistic Regression:
+male tpr = 0.0
+female tpr = 0.0
+dp = 0.0
+EOp = 0.0
+EOd = 0.0
+accuracy = 0.9964601769911504
+
+MLP:
+
+Volatile substance abuse normal:
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 12  85]
+ [ 10 458]]
+
+Train Result:
+================================================
+Confusion Matrix:
+ [[ 11  31]
+ [  8 515]]
+
+Logistic Regression:
+male tpr = 0.12371134020618557
+female tpr = 0.2619047619047619
+dp = 0.005309734513274336
+EOp = 0.13819342169857635
+EOd = 0.0721322879766435
+accuracy = 0.8814159292035398
+
+MLP:
+Female TPR 0.037037037037037035
+male TPR 0.0
+DP 0.005860805860805862
+EOP 0.037037037037037035
+EoD 0.018919466213069273
+acc 0.8779840848806366
+
+submission early 2024
+Summary in 1-2 weeks
