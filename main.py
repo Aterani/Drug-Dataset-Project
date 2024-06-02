@@ -91,11 +91,7 @@ seed_everything(0)
 net = FullyConnectedNet(input_size=12, hidden_size=128, num_classes=1)
 criterion = nn.BCEWithLogitsLoss()
 
-# optimizer = torch.optim.SGD(net.parameters(), lr=0.1)
-weight_decay=1e-3
-init_lr=1e-3
-momentum_decay = 0.9
-optimizer = torch.optim.SGD(net.parameters(), lr=0.01)
+optimizer = torch.optim.SGD(net.parameters(), lr=0.1)
 net.train()
 for epoch in range(64):  # 64
     for batch in train_dataloader:
@@ -105,7 +101,6 @@ for epoch in range(64):  # 64
         labels = labels.unsqueeze(1)
         sensitive = sensitive.unsqueeze(1)
         loss = criterion(outputs, labels)
-
         loss.backward()
         optimizer.step()
 
