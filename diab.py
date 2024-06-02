@@ -6,7 +6,7 @@ from torch import nn
 from torch.utils.data import DataLoader
 import numpy as np
 from CustomDataset import CustomDataset
-from FullyConnectedNet import FullyConnectedNet
+from DiabNet import DiabNet
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
@@ -213,7 +213,7 @@ test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, 
 valid_dataloader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 
 seed_everything(0)
-net = FullyConnectedNet(input_size=41, hidden_size=128, num_classes=1)
+net = DiabNet(input_size=41, hidden_size=1024, num_classes=1)
 criterion = nn.BCEWithLogitsLoss()
 
 optimizer = torch.optim.SGD(net.parameters(), lr=0.1)
