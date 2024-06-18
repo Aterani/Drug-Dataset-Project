@@ -89,7 +89,7 @@ train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 valid_dataloader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 
-seed_everything(0)
+#seed_everything(0)
 net = FullyConnectedNet(input_size=12, hidden_size=128, num_classes=1)
 criterion = nn.BCEWithLogitsLoss()
 
@@ -143,9 +143,6 @@ with torch.no_grad():
             mask_10 = ((label == 1) & (sensitive == 0))
             mask_11 = ((label == 1) & (sensitive == 1))
 
-            print(label.shape)
-            print(sensitive.shape)
-
             predic = torch.round(prediction.squeeze(1)).detach().cpu()
             correct_00 += (predic[mask_00] == label[mask_00]).float().sum().item()
             total_00 += mask_00.float().sum().item()
@@ -178,6 +175,8 @@ with torch.no_grad():
 
     female_CM = confusion_matrix(female_gt, female_predic)
     male_CM = confusion_matrix(male_gt, male_predic)
+    print(female_CM)
+    print(male_CM)
     female_dp = (female_CM[1][1] + female_CM[0][1]) / (
             female_CM[0][0] + female_CM[0][1] + female_CM[1][0] + female_CM[1][1])
     male_dp = (male_CM[1][1] + male_CM[0][1]) / (male_CM[0][0] + male_CM[0][1] + male_CM[1][0] + male_CM[1][1])
@@ -240,6 +239,8 @@ print(f'Accuracy for y=1, s=1: {acc_11}', total_11)
 
 female_CM = confusion_matrix(female_gt, female_predic)
 male_CM = confusion_matrix(male_gt, male_predic)
+print(female_CM)
+print(male_CM)
 female_dp = (female_CM[1][1] + female_CM[0][1]) / (
         female_CM[0][0] + female_CM[0][1] + female_CM[1][0] + female_CM[1][1])
 male_dp = (male_CM[1][1] + male_CM[0][1]) / (male_CM[0][0] + male_CM[0][1] + male_CM[1][0] + male_CM[1][1])
@@ -255,4 +256,4 @@ print('EOP', abs(female_TPR - male_TPR))
 print('EoD', 0.5 * (abs(female_FPR - male_FPR) + abs(female_TPR - male_TPR)))
 print('acc', accuracy_score(test_gt, test_pred))
 print(accuracy_score(test_gt, test_pred), epoch_loss)
-
+print(confusion_matrix(test_gt, test_pred))

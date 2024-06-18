@@ -8,13 +8,17 @@ class DiabNet(nn.Module):
         self.fc_seq = nn.Sequential(
             nn.Linear(input_size, hidden_size),
             nn.ReLU(),
-            nn.Linear(hidden_size, 256),
+            nn.Linear(hidden_size, 350),
             nn.ReLU(),
-            nn.Linear(256, 64),
+            nn.Linear(350, 150),
             nn.ReLU(),
-            nn.Linear(64, 16),
+            nn.Linear(150, 75),
             nn.ReLU(),
-            nn.Linear(16, num_classes)
+            nn.Linear(75, 35),
+            nn.ReLU(),
+            nn.Linear(35, 5),
+            nn.ReLU(),
+            nn.Linear(5, num_classes)
         )
         # self.fc_seq = nn.Sequential(
         #     nn.Linear(11, 30),

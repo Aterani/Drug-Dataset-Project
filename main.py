@@ -47,11 +47,24 @@ data["Coke"].replace(to_replace='CL6', value='1.0', inplace=True, regex=True)
 data.to_csv('drug_data.csv', encoding='utf-8', index=False)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# data_1 = pd.read_csv('drug_data.csv')
+data_1 = pd.read_csv('drug_data.csv')
+# femaleUser=0
+# maleUser=0
+# femaleNonUser=0
+# maleNonUser=0
 # for i in range(len(data_1)):
-#     if data_1['Gender'][i] == 1:
-#         data_1.drop(i, inplace=True)
-#
+#     if data_1['Gender'][i] == 1 and data_1['Coke'][i] == 0:
+#         femaleNonUser+=1
+#     elif data_1['Gender'][i] == 1 and data_1['Coke'][i] == 1:
+#         femaleUser+=1
+#     elif data_1['Gender'][i] == 0 and data_1['Coke'][i] == 0:
+#         maleNonUser+=1
+#     else:
+#         maleUser+=1
+# print(femaleUser)
+# print(femaleNonUser)
+# print(maleUser)
+# print(maleNonUser)
 # data_2 = pd.read_csv('drug_data.csv')
 # for i in range(len(data_2)):
 #     if data_2['Gender'][i] == 0:
@@ -156,3 +169,4 @@ with torch.no_grad():
     print('EoD', 0.5 * (abs(female_FPR - male_FPR) + abs(female_TPR - male_TPR)))
     print('acc', accuracy_score(test_gt, test_pred))
     print(accuracy_score(test_gt, test_pred), epoch_loss)
+    print(confusion_matrix(test_gt, test_pred))

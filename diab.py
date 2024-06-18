@@ -10,6 +10,8 @@ from DiabNet import DiabNet
 from sklearn.model_selection import train_test_split
 import pandas as pd
 
+from FullyConnectedNet import FullyConnectedNet
+
 
 def seed_everything(seed):
     """
@@ -41,12 +43,12 @@ data = pd.read_csv("diabetic_data.csv")
 # data["max_glu_serum"].replace(to_replace='>200', value=1, inplace=True, regex=True)
 # data["max_glu_serum"].replace(to_replace='>300', value=2, inplace=True, regex=True)
 # data["max_glu_serum"].replace(to_replace='Norm', value=3, inplace=True, regex=True)
-# data["max_glu_serum"].replace(to_replace='No', value=4, inplace=True, regex=True)
+#data["max_glu_serum"].replace(to_replace='', value=4, inplace=True, regex=True)
 #
 # data["A1Cresult"].replace(to_replace='>8', value=1, inplace=True, regex=True)
 # data["A1Cresult"].replace(to_replace='>7', value=2, inplace=True, regex=True)
 # data["A1Cresult"].replace(to_replace='Norm', value=3, inplace=True, regex=True)
-# data["A1Cresult"].replace(to_replace='No', value=4, inplace=True, regex=True)
+#data["A1Cresult"].replace(to_replace='', value=4, inplace=True, regex=True)
 #
 # data["metformin"].replace(to_replace='Up', value=1, inplace=True, regex=True)
 # data["metformin"].replace(to_replace='Down', value=2, inplace=True, regex=True)
@@ -178,13 +180,30 @@ data = pd.read_csv("diabetic_data.csv")
 # data["race"].replace(to_replace='Other', value=5, inplace=True, regex=True)
 # data["race"].replace(to_replace='\\?', value=5, inplace=True, regex=True)
 # data["race"].replace(to_replace='Hispanic', value=4, inplace=True, regex=True)
-# data.to_csv('diabetic_data.csv', encoding='utf-8', index=False)
+data.to_csv('diabetic_data.csv', encoding='utf-8', index=False)
 
+# femaleUser=0
+# maleUser=0
+# femaleNonUser=0
+# maleNonUser=0
+# for i in range(len(data)):
+#     if data['gender'][i] == 1 and data['readmitted'][i] == 0:
+#         femaleNonUser+=1
+#     elif data['gender'][i] == 1 and data['readmitted'][i] == 1:
+#         femaleUser+=1
+#     elif data['gender'][i] == 0 and data['readmitted'][i] == 0:
+#         maleNonUser+=1
+#     else:
+#         maleUser+=1
+# print(femaleUser)
+# print(femaleNonUser)
+# print(maleUser)
+# print(maleNonUser)
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 X_1 = data.drop(['encounter_id', 'patient_nbr', 'readmitted', 'weight', 'payer_code', 'medical_specialty'
-                 , 'diag_1', 'diag_2', 'diag_3'], axis=1)
+                 , 'diag_1', 'diag_2', 'diag_3', 'max_glu_serum', 'A1Cresult'], axis=1)
 y_1 = data['readmitted']
 
 a_1 = data['gender']
@@ -212,13 +231,13 @@ train_dataloader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True
 test_dataloader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 valid_dataloader = DataLoader(valid_dataset, batch_size=batch_size, shuffle=True, num_workers=0)
 
-seed_everything(0)
-net = DiabNet(input_size=41, hidden_size=1024, num_classes=1)
+#seed_everything(19)
+net = DiabNet(input_size=39, hidden_size=64, num_classes=1)
 criterion = nn.BCEWithLogitsLoss()
 
 optimizer = torch.optim.SGD(net.parameters(), lr=0.1)
 net.train()
-for epoch in range(64):  # 64
+for epoch in range(128):  # 64
     for batch in train_dataloader:
         data1, labels, sensitive = batch[0], batch[1], batch[2]
         optimizer.zero_grad()
@@ -265,9 +284,9 @@ with torch.no_grad():
             male_predic.append(test_pred[i])
             male_gt.append(test_gt[i])
 
-    print(female_predic)
     female_CM = confusion_matrix(female_gt, female_predic)
     male_CM = confusion_matrix(male_gt, male_predic)
+
     female_dp = (female_CM[1][1] + female_CM[0][1]) / (
                 female_CM[0][0] + female_CM[0][1] + female_CM[1][0] + female_CM[1][1])
     male_dp = (male_CM[1][1] + male_CM[0][1]) / (male_CM[0][0] + male_CM[0][1] + male_CM[1][0] + male_CM[1][1])
@@ -282,3 +301,4 @@ with torch.no_grad():
     print('EoD', 0.5 * (abs(female_FPR - male_FPR) + abs(female_TPR - male_TPR)))
     print('acc', accuracy_score(test_gt, test_pred))
     print(accuracy_score(test_gt, test_pred), epoch_loss)
+    print(confusion_matrix(test_gt, test_pred))

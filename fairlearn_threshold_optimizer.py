@@ -56,8 +56,7 @@ a_1_val = np.array(a_1_val, dtype=float)
 
 batch_size = 128
 
-MLP = sklearn.neural_network.MLPClassifier(hidden_layer_sizes=11, max_iter=5000, batch_size=batch_size,
-                                           random_state=9, solver='adam')
+MLP = sklearn.neural_network.MLPClassifier(hidden_layer_sizes=11, max_iter=4000, batch_size=batch_size, solver='adam')
 
 MLP.fit(X_1_train, y_1_train)
 y_pred = MLP.predict(X_1_test)
@@ -104,7 +103,7 @@ threshold_optimizer = ThresholdOptimizer(
     predict_method="auto"
     )
 threshold_optimizer.fit(X_1_train, y_1_train, sensitive_features=a_1_train)
-y_pred = threshold_optimizer.predict(X_1_test, sensitive_features=a_1_test, random_state=1)
+y_pred = threshold_optimizer.predict(X_1_test, sensitive_features=a_1_test)
 threshold_rules_by_group = threshold_optimizer.interpolated_thresholder_.interpolation_dict
 # print(json.dumps(threshold_rules_by_group, default=str, indent=4))
 # plot_threshold_optimizer(threshold_optimizer)
@@ -141,3 +140,4 @@ print('DP', abs(female_dp - male_dp))
 print('EOP', abs(female_TPR - male_TPR))
 print('EoD', 0.5 * (abs(female_FPR - male_FPR) + abs(female_TPR - male_TPR)))
 print("Accuracy score on test set: ", sklearn.metrics.accuracy_score(y_1_test, y_pred))
+print(confusion_matrix(y_1_test, y_pred))
